@@ -18,11 +18,16 @@ ggplot(data = women) +
   geom_bar(aes(x = category))
 ```
 
-What roles are the most common among the Women of 2020? 
+What words in roles appear most frequently among the Women of 2020? 
 ```{r}
 library(wordcloud2)
+library(webshot)
+library(htmlwidgets)
 
 rolecount <- table(women$role)
-wordcloud2(rolecount)
+rolecloud <- wordcloud2(rolecount, size = 1.5)
+saveWidget(rolecloud, "role_wordcloud.html", selfcontained = F)
+webshot("role_wordcloud.html", "role_wordcloud.png", delay = 5, vwidth = 2000, vheight = 2000)
 ```
+![role wordcloud](role_wordcloud.png)
 
