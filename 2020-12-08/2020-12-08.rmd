@@ -27,7 +27,6 @@ library(htmlwidgets)
 rolecount <- table(women$role)
 rolecloud <- wordcloud2(rolecount, size = 1.5)
 saveWidget(rolecloud, "role_wordcloud.html", selfcontained = F)
-webshot("role_wordcloud.html", "role_wordcloud.png", delay = 5, vwidth = 2000, vheight = 2000)
+webshot("role_wordcloud.html", "role_wordcloud.png", delay = 30, vwidth = 2000, vheight = 2000)
 ```
-![role wordcloud](role_wordcloud.png)
 
