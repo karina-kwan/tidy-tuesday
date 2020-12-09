@@ -15,5 +15,5 @@ women <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidy
 ```{r}
 # distribution of categories by country
 ggplot(data = women) +
-  geom_bar(aes(x = category, fill = country))
+  geom_bar(aes(x = category))
 ```
