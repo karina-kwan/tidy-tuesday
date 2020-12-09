@@ -11,3 +11,9 @@ library(tidyverse)
 # load data 
 women <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-12-08/women.csv')
 ```
+
+```{r}
+# distribution of categories by country
+ggplot(data = women) +
+  geom_bar(aes(x = category, fill = country))
+```
