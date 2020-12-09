@@ -17,3 +17,12 @@ women <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidy
 ggplot(data = women) +
   geom_bar(aes(x = category))
 ```
+
+What roles are the most common among the Women of 2020? 
+```{r}
+library(wordcloud2)
+
+rolecount <- table(women$role)
+wordcloud2(rolecount)
+```
+
