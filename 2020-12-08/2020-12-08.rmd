@@ -1,0 +1,13 @@
+# 2020-12-08 - Women of 2020
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = 'hide', warning = FALSE,
+                      message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+
+# load data 
+women <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-12-08/women.csv')
+```
