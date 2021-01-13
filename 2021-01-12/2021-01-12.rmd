@@ -1,0 +1,24 @@
+---
+title: '2021-01-12 - Tate Art Museum'
+output: html_document
+---
+
+```{r, message = FALSE}
+library(tidyverse)
+
+# load data
+artists <- readr::read_csv("https://github.com/tategallery/collection/raw/master/artist_data.csv")
+
+attach(artists)
+```
+
+Explore data
+```{r}
+sum(is.na(placeOfBirth))
+sum(is.na(yearOfBirth))
+```
+```{r, message = FALSE, warning = FALSE}
+ggplot(data = artists, mapping = aes(x = yearOfBirth, fill = gender)) + 
+  geom_histogram()
+```
+
