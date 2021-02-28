@@ -1,0 +1,54 @@
+---
+title: '2021-01-19'
+output: html_document
+---
+
+```{r setup, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidytuesdayR)
+library(tidyverse)
+tuesdata <- tidytuesdayR::tt_load('2021-01-19')
+```
+
+# 2021-01-19 - Kenya Census
+
+```{r}
+farming <- tuesdata$crops
+farming[49,] <- colSums(farming[,-1], na.rm = TRUE)
+
+
+
+crop_type <- colnames(farming)[2:10]
+```
+```{r}
+farming <- tuesdata$crops
+crop_type <- colnames(farming)[2:10]
+#farming %>%
+  #gather(farming, key = crop_type) %>%
+  group_by(farming, c('Farming','Tea')) %>%
+  summarize(number = sum(value, na.rm = TRUE))
+
+crop_sum <- rep(NA, 10)
+for (i in 2:10) {
+  crop_sum[i-1] <- colSums(farming[,-1], na.rm = TRUE)[[i]]
+}
+ggplot(data = farming) +
+  
+```
+```{r}
+crop_type <- colnames(farming)[2:10]
+
+crop_sum <- rep(NA, 10)
+for (i in 1:10) {
+  crop_sum[i] <- colSums(farming[,-1], na.rm = TRUE)[[i]]
+}
+crop_sum
+
+ggplot(data = colSums(farming[,-1], na.rm = TRUE), aes(x = crop_type))
+```
+```{r}
+ggplot(data = farming) +
+  geom_histogram(mapping = aes(x = SubCounty), stat = 'count')
+```
+
